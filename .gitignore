@@ -1,0 +1,42 @@
+# --- secrets: never commit ---
+.env
+backend/.env
+# secret.key, bridge.token
+backend/data/
+# the linked WhatsApp login
+whatsapp-bridge/auth/
+
+# --- student data (faces are biometric data) ---
+backend/known_faces/
+backend/attendance_records/
+backend/class_photos/
+
+# --- large model file (installed by pip anyway) ---
+*.dat
+
+# --- Node ---
+node_modules/
+frontend/dist/
+build/
+
+# --- Python ---
+__pycache__/
+*.pyc
+.pytest_cache/
+venv/
+.venv/
+
+# --- editors / OS ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# --- running it online (deploy/) ---
+logs/
+backups/
+*.dump
+restart.flag
+
+# Aakansha IT Hub course pictures
+backend/course_images/

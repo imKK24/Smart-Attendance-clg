@@ -1,0 +1,30 @@
+# Step 1:  pip install -r requirements.txt
+# Step 2:  pip install face_recognition --no-deps
+#          (--no-deps stops pip from trying to compile dlib from source;
+#           dlib-bin below already gives you a ready-made dlib)
+
+flask>=3.0,<4
+flask-cors>=4.0
+sqlalchemy>=2.0,<3
+pymysql>=1.1          # MySQL / MariaDB (XAMPP)
+psycopg2-binary>=2.9  # only for PostgreSQL / copy-from-postgres
+pyjwt>=2.8
+python-dotenv>=1.0
+cryptography>=42
+requests>=2.31
+waitress>=3.0          # production web server (python serve.py)
+openpyxl>=3.1
+defusedxml>=0.7     # openpyxl uses it to block "XML bomb" files in uploads
+
+# Face recognition
+numpy
+opencv-python
+imutils
+scipy
+Pillow
+click
+dlib-bin
+face_recognition_models   # includes shape_predictor_68_face_landmarks.dat, no manual download
+setuptools<82            # face_recognition_models needs pkg_resources, removed in setuptools 82
+
+# Tests:  pip install pytest   then   pytest

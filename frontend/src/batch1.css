@@ -1,0 +1,68 @@
+/* ======================================================================
+   Batch 1: several photos, reports, leave
+   ====================================================================== */
+
+/* photo strip (register page + profile) */
+.shots { display: flex; gap: 10px; flex-wrap: wrap; }
+.shots li { position: relative; display: grid; gap: 4px; justify-items: center; width: 82px; }
+.shots img, .shots .face { width: 72px; height: 72px; border-radius: 12px; object-fit: cover; border: 1px solid var(--line); }
+.shots span { font-size: 11px; color: var(--ink-3); text-align: center; line-height: 1.2; }
+.shots .icon-btn { position: absolute; top: -6px; right: 0; width: 24px; height: 24px; }
+.shots li:first-child img, .shots li:first-child .face { border: 2px solid var(--blue); }
+.shots.in-profile { margin-top: 8px; }
+.add-shot { width: 72px; height: 72px; border-radius: 12px; border: 1.5px dashed var(--ink-3); background: var(--paper); display: grid; place-items: center; align-content: center; gap: 2px; font-size: 12px; font-weight: 600; color: var(--ink-2); }
+.add-shot:hover:not(:disabled) { border-color: var(--blue); color: var(--blue); }
+
+/* inbox: record as leave */
+.mv-actions { padding: 12px 24px 0; display: flex; gap: 10px; }
+
+/* leave cards */
+.ev.leave { grid-template-columns: 48px minmax(0, 1fr) auto; }
+.ev.leave .ev-main p { margin: 0; }
+
+/* reports */
+.report-bar { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-bottom: 18px; }
+.report-bar .field { font-weight: 600; font-size: 14px; }
+.report-bar input { padding: 10px 12px; border-radius: 10px; border: 1.5px solid var(--line); background: var(--card); font-weight: 400; }
+.report-bar input:focus { outline: none; border-color: var(--blue); }
+.elig li { display: grid; grid-template-columns: 38px minmax(150px, 1fr) minmax(140px, 1.3fr) 72px 190px 210px; gap: 16px; align-items: center; padding: 12px 20px; border-bottom: 1px solid var(--rule); }
+.elig li:last-child { border-bottom: 0; }
+.elig li.low { background: linear-gradient(90deg, var(--red-wash), transparent 40%); }
+.el-name { display: grid; min-width: 0; }
+.el-name strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.el-bar { position: relative; height: 10px; border-radius: 99px; background: var(--rule); }
+.el-bar i { position: absolute; inset: 0 auto 0 0; border-radius: 99px; background: var(--green); }
+.low .el-bar i { background: var(--red); }
+.el-bar b { position: absolute; top: -4px; bottom: -4px; width: 2px; background: var(--ink); }
+.el-pct { font-family: var(--display); font-size: 20px; text-align: right; }
+.elig .chip { justify-self: end; }
+.low .el-pct { color: var(--red); }
+.month-nav { display: flex; align-items: center; gap: 12px; }
+.month-nav h2 { min-width: 170px; text-align: center; }
+.month-nav .icon-btn { font-size: 20px; line-height: 1; }
+table.register { border-collapse: collapse; font-size: 13px; width: 100%; }
+table.register th, table.register td { border-bottom: 1px solid var(--rule); padding: 7px 6px; text-align: center; white-space: nowrap; }
+table.register thead th { color: var(--ink-2); font-weight: 600; background: var(--paper); }
+table.register thead th span { display: block; font-size: 10px; color: var(--ink-3); font-weight: 500; }
+table.register th.stick { position: sticky; left: 0; z-index: 1; background: var(--card); text-align: left; padding-left: 16px; min-width: 170px; font-weight: 600; }
+table.register thead th.stick { background: var(--paper); }
+table.register th.stick small { display: block; color: var(--ink-3); font-weight: 400; font-size: 11px; }
+.m-P { color: var(--green); background: var(--green-wash); font-weight: 700; }
+.m-A { color: var(--red); background: var(--red-wash); font-weight: 700; }
+.m-L { color: var(--amber); background: var(--amber-wash); font-weight: 700; }
+.m-H { color: var(--ink-3); background: var(--rule); }
+.legend span { display: inline-block; width: 22px; text-align: center; border-radius: 5px; margin: 0 4px 0 10px; }
+.lowpct { color: var(--red); }
+
+@media (max-width: 1000px) {
+  .report-bar { grid-template-columns: 1fr 1fr; }
+  .elig li { grid-template-columns: 38px minmax(0, 1fr) 64px; row-gap: 6px; }
+  .elig .el-bar, .elig .el-count, .elig .chip { grid-column: 2 / -1; }
+  .elig .chip { justify-self: start; }
+}
+@media (max-width: 800px) {
+  .nav button { padding: 8px 0; }
+  .nav button span { font-size: 9px; }
+  .ev.leave { grid-template-columns: 40px minmax(0, 1fr); }
+}
+textarea { font: inherit; color: inherit; }

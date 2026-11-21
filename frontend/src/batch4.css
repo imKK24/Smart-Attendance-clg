@@ -1,0 +1,65 @@
+/* ======================================================================
+   Class-photo attendance, IP cameras, method switch
+   ====================================================================== */
+.method-bar { display: flex; gap: 14px 24px; align-items: center; flex-wrap: wrap; margin-bottom: 20px; }
+.method-switch { margin-left: auto; padding: 8px 14px; border: 1px dashed var(--line); border-radius: 10px; }
+.live-actions { display: flex; justify-content: flex-end; margin: -8px 0 16px; }
+.cam-pick .link { justify-self: start; color: var(--blue); }
+.mono { font-family: ui-monospace, Menlo, Consolas, monospace; overflow-wrap: anywhere; }
+
+/* review: photo with face boxes */
+.pa-review { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(300px, 1fr); gap: 20px; align-items: start; }
+.pa-tabs { margin-bottom: 12px; }
+.pa-photo { position: relative; line-height: 0; border-radius: 10px; overflow: hidden; background: var(--ink); }
+.pa-photo img { width: 100%; height: auto; display: block; }
+.pa-box { position: absolute; border: 2px solid #5DF0A6; border-radius: 6px; background: transparent; padding: 0; line-height: 1.2; }
+.pa-box span { position: absolute; left: -2px; bottom: 100%; margin-bottom: 2px; background: #12875A; color: #fff; font-size: 11px; font-weight: 700; padding: 1px 5px; border-radius: 4px; white-space: nowrap; }
+.pa-box.unknown { border-color: #FF8794; }
+.pa-box.unknown span { background: var(--red); }
+.pa-box.small { border-color: #FFC94D; border-style: dashed; }
+.pa-box.small span { background: var(--amber); }
+.pa-box.off { border-color: rgba(255,255,255,.6); }
+.pa-box.off span { background: var(--ink-3); }
+.pa-box.sel, .pa-box:hover { box-shadow: 0 0 0 3px rgba(255,255,255,.9); }
+.pa-assign { position: absolute; left: 12px; right: 12px; bottom: 12px; display: flex; gap: 8px; align-items: center; background: var(--card); padding: 10px; border-radius: 10px; line-height: 1.4; box-shadow: 0 4px 16px rgba(0,0,0,.25); }
+.pa-assign label { font-weight: 600; white-space: nowrap; }
+.pa-assign select { flex: 1; padding: 8px; border-radius: 8px; border: 1.5px solid var(--line); }
+.pa-legend { margin-top: 10px; display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.key { display: inline-block; width: 14px; height: 14px; border-radius: 3px; border: 2px solid #12875A; margin-left: 8px; }
+.key.unknown { border-color: var(--red); }
+.key.small { border-color: #E2A400; border-style: dashed; }
+.pa-list { max-height: 520px; overflow-y: auto; }
+.pa-list li { border-bottom: 1px solid var(--rule); }
+.pa-list .check { padding: 8px 20px; gap: 10px; cursor: pointer; }
+.pa-list .check.on { background: var(--green-wash); }
+.pa-name { flex: 1; display: grid; min-width: 0; }
+.pa-name small { color: var(--ink-3); font-size: 12px; }
+.pa-actions { display: flex; gap: 10px; justify-content: flex-end; border-top: 1px solid var(--line); }
+.pa-done { display: grid; justify-items: center; text-align: center; gap: 12px; padding: 48px 24px; }
+.pa-done-icon { width: 56px; height: 56px; border-radius: 50%; background: var(--green); color: #fff; display: grid; place-items: center; }
+
+/* evidence on the Attendance page */
+.evidence { margin-bottom: 18px; display: grid; gap: 10px; }
+.ev-thumbs { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
+.ev-thumbs img { height: 110px; border-radius: 8px; border: 1px solid var(--line); display: block; }
+
+/* IP cameras */
+.ipc-list { display: grid; gap: 8px; margin: 6px 0 10px; }
+.ipc-list li { display: flex; gap: 10px; align-items: center; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; }
+.ipc-list .grow { display: grid; }
+.ipc-list small { overflow-wrap: anywhere; }
+.ipc-test { display: grid; grid-template-columns: 220px 1fr; gap: 14px; align-items: center; padding: 10px; border-radius: 10px; background: var(--green-wash); }
+.ipc-test img { width: 100%; border-radius: 8px; display: block; }
+.dialog .fields { margin: 6px 0; }
+
+@media (max-width: 1000px) {
+  .pa-review { grid-template-columns: minmax(0, 1fr); }
+  .method-switch { margin-left: 0; }
+}
+@media (max-width: 800px) { .ipc-test { grid-template-columns: 1fr; } }
+.ok-text { color: #15803D; font-size: 13px; }
+.pp-rule { border-top: 1px solid var(--line); padding: 14px 0 6px; display: grid; gap: 8px; }
+.pp-rule .row-form { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.pp-rule .row-form .input { flex: 1 1 220px; }
+.pp-radius { display: flex; align-items: center; gap: 8px; }
+.pp-radius .input { width: 110px; }

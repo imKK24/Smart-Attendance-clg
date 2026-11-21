@@ -1,0 +1,24 @@
+# ============================================================
+#  INSTALL (updated). The full steps are in ../README.md
+# ============================================================
+
+# Everything the backend needs (Flask, PostgreSQL driver, OpenCV, dlib, ...)
+cd backend
+pip install -r requirements.txt
+pip install face_recognition --no-deps
+
+# Why --no-deps?  face_recognition asks for "dlib", which pip tries to
+# COMPILE (needs CMake + Visual Studio, 10+ minutes, often fails on Windows).
+# requirements.txt installs "dlib-bin" instead: the same dlib, ready-made.
+
+# VERIFY:
+#   python -c "import cv2, dlib, face_recognition; print('All packages installed')"
+
+# The old version of this file had three problems:
+#   - flask and flask-cors were missing, so app.py could not start
+#   - "pip install dlib==19.22.99 --only-binary=:all:" fails: that version
+#     is not on PyPI
+#   - dlib was installed AFTER face_recognition, which already tries to build it
+#
+# shape_predictor_68_face_landmarks.dat no longer needs a manual download:
+# it ships inside the face_recognition_models package.
